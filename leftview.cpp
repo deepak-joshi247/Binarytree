@@ -1,3 +1,4 @@
+// approach 1 
 class Solution {
   public:
     vector<int> leftView(Node *root) {
@@ -30,3 +31,30 @@ class Solution {
         return ans;
     }
 };
+
+// --------------------------------------------------------------------------------
+// approach 2
+class Solution {
+    void helpmerecursion(map<int,Node*> &m,Node* root,int level){
+        if(root==NULL){
+            return;
+        }
+        if(m[level]==NULL){
+            m[level] = root;
+        }
+        helpmerecursion(m,root->left,level+1);
+        helpmerecursion(m,root->right,level+1);
+    }
+  public:
+    vector<int> leftView(Node *root) {
+        map<int,Node*> m;
+        int level = 0;
+        helpmerecursion(m,root,level);
+        vector<int> ans;
+        for(auto i:m){
+            ans.push_back(i.second->data);
+        }
+        return ans;
+    }
+};
+
