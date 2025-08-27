@@ -14,8 +14,9 @@ class Solution {
             //  we made temp since the below action cant be done in a queue 
             Node* frontnode = temp.first;
             int hd = temp.second;     //  horizontal distance
-            
-            m[hd].push_back(frontnode->data);   // since we are storing in vector part of map thats why we use push-baack()
+          
+            // m[index] = frontnode->data;  // Overwrites the vector with the new data
+            m[hd].push_back(frontnode->data);   
             
             if(frontnode->left != NULL){
                 q.push(make_pair(frontnode->left,hd-1));
