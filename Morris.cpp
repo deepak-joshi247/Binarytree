@@ -1,3 +1,15 @@
+// this is a O(n) 
+/*    another ex of nested loop acting as O(n)
+        int i = 0;
+        while(i<4){
+            while(i<4){
+                i++;
+            }
+        }
+        this happens because the inner loop is not starting from scratch and 
+        is making progression with the outer loop (i.e. not counting 2 times)
+*/
+
 class Solution {
     
   public:
